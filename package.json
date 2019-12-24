@@ -4,6 +4,7 @@
   "description": "Replaces non-ascii digits with ascii digits or replace ascii digits with localized digits",
   "main": "dist/unlocalize-digits.min.js",
   "types": "./dist/lib.d.ts",
+  "files": ["./dist/*"],
   "scripts": {
     "build": "webpack --mode production",
     "lint": "eslint ./src/**/*.[jt]s",
