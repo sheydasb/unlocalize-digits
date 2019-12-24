@@ -1,0 +1,108 @@
+{
+  "name": "unlocalize-digits",
+  "version": "1.0.0",
+  "description": "Replaces non-ascii digits with ascii digits or replace ascii digits with localized digits",
+  "main": "dist/unlocalize-digits.min.js",
+  "types": "./dist/lib.d.ts",
+  "scripts": {
+    "build": "webpack --mode production",
+    "lint": "eslint ./src/**/*.[jt]s",
+    "format": "prettier --write 'src/**/*.[jt]s'",
+    "test": "jest",
+    "test:coverage": "npm run clean && jest --coverage && npm run clean",
+    "clean": "rm -rf dist",
+    "prepare": "npm run test:coverage && npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheydasb/unlocalize-digits.git"
+  },
+  "keywords": [
+    "unicode",
+    "numbers",
+    "digits"
+  ],
+  "author": "roham  <siavakh@protonmail.com> (https://github.com/sheydasb)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sheydasb/simple-fetch/issues"
+  },
+  "homepage": "https://github.com/sheydasb/simple-fetch#readme",
+  "dependencies": {
+    "core-js": "^3.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@types/jest": "^24.0.24",
+    "@types/node": "^12.12.21",
+    "@types/webpack": "^4.41.0",
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
+    "@typescript-eslint/parser": "^2.12.0",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^23.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "singleQuote": true
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/env",
+        {
+          "modules": false,
+          "useBuiltIns": "entry",
+          "corejs": 3
+        }
+      ]
+    ]
+  },
+  "eslintIgnore": [
+    "dist/**/*",
+    "node_modules/**/*"
+  ],
+  "jest": {
+    "roots": [
+      "<rootDir>/src",
+      "<rootDir>/tests"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.js?(x)",
+      "**/?(*.)+(spec|test).js?(x)",
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "testEnvironment": "node",
+    "preset": "ts-jest"
+  },
+  "browserslist": "> 0.25%, not dead, ie >= 9"
+}
